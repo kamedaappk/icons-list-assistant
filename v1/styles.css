@@ -1,0 +1,121 @@
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+.ai-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(0, 123, 255, 0.5));
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+.ai-button.recording::before {
+    transform: translate(-50%, -50%) scale(1);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(220, 53, 69, 0.5));
+}
+
+.ai-button.processing::before {
+    transform: translate(-50%, -50%) scale(1);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 193, 7, 0.5));
+}
+
+.ai-button.done::before {
+    transform: translate(-50%, -50%) scale(1);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(40, 167, 69, 0.5));
+}
+
+.ai-button.recording {
+    background-color: #dc3545;
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
+}
+
+.ai-button.processing {
+    background-color: #ffc107;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+}
+
+.ai-button.done {
+    background-color: #28a745;
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);
+}
+
+.ai-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes recordingAnimation {
+    0% {
+        box-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(220, 53, 69, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
+    }
+}
+
+@keyframes processingAnimation {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 193, 7, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    }
+}
+
+@keyframes doneAnimation {
+    0% {
+        box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(40, 167, 69, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);
+    }
+}
+
+.ai-button.recording {
+    animation: recordingAnimation 1s infinite;
+}
+
+.ai-button.processing {
+    animation: processingAnimation 1s infinite;
+}
+
+.ai-button.done {
+    animation: doneAnimation 1s infinite;
+}

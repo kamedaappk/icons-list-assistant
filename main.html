@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 400px; /* Adjust the height as needed */
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Combined Contents of Subfolders</h1>
+    <div id="content-container"></div>
+
+    <script>
+        // Define your folder names here
+        const folders = ['v1', 'v2', 'v3', 'v3.1', 'v3.2', 'v4', 'v5', 'v6', 'v7']; // Add or adjust folder names as needed
+
+        const container = document.getElementById('content-container');
+
+        folders.forEach(folder => {
+            const iframe = document.createElement('iframe');
+            iframe.src = `${folder}/index.html`;
+            iframe.title = folder;
+            container.appendChild(iframe);
+        });
+    </script>
+</body>
+</html>
